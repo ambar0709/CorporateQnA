@@ -1,0 +1,9 @@
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\obj\Debug\netcoreapp3.1\Data.csprojAssemblyReference.cache
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\obj\Debug\netcoreapp3.1\Data.dll
+C:\Users\manas\Desktop\keka\Task_new\CorporateQnA\Data\obj\Debug\netcoreapp3.1\Data.pdb
