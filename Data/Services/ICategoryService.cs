@@ -7,6 +7,8 @@ namespace Data.Services
     public interface ICategoryService
     {
         public Task AddCategory(DbCategory category);
-        public Task<List<DbCategory>> GetAllCategories(); 
+        public Task<List<DbCategory>> GetAllCategories();
+        public Task<List<DbCategory>> SearchCategoriesByKeyword(string keyword,int sortBy);
+
     }
 }

@@ -7,7 +7,8 @@ import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { Editor, Toolbar } from 'ngx-editor';
+import { Editor, Toolbar, toHTML } from 'ngx-editor';
+import { toHtml } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-add-question',
@@ -33,9 +34,9 @@ export class AddQuestionComponent implements OnInit {
     private authService: AuthService
   ) {
     this.addQuestionForm = new FormGroup({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      categoryId: new FormControl('', Validators.required),
+      Title: new FormControl('', Validators.required),
+      Description: new FormControl('', Validators.required),
+      CategoryId: new FormControl('', Validators.required),
     });
   }
 
@@ -48,11 +49,15 @@ export class AddQuestionComponent implements OnInit {
       ariaLabelledBy: 'modal-basic-title',
       size: 'lg',
     });
-    this.modalReference.result.then(() => {
-      this.addQuestionForm.reset();
-      this.editor.destroy();
-    });
-    this.editor = new Editor();
+    this.modalReference.result.then(
+      () => {
+        this.resetForm();
+      },
+      () => {
+        this.resetForm();
+      }
+    );
+    this.editor = new Editor({});
     this.loadCategories();
   }
 
@@ -87,5 +92,6 @@ export class AddQuestionComponent implements OnInit {
   resetForm() {
     this.addQuestionForm.reset();
     this.modalReference.close();
+    this.editor.destroy();
   }
 }

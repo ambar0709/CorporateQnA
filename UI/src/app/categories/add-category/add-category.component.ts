@@ -1,8 +1,8 @@
-import { CategoryService } from './../Services/category.service';
+import { CategoryService } from '../../Services/category.service';
 import { Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -14,6 +14,7 @@ export class AddCategoryComponent implements OnInit {
   modalReference: NgbModalRef;
   addCategoryForm: FormGroup;
   loading = false;
+  @Output() categoryAdded = new EventEmitter<boolean>();
   constructor(
     private modalService: NgbModal,
     private categoryService: CategoryService
@@ -33,9 +34,14 @@ export class AddCategoryComponent implements OnInit {
       ariaLabelledBy: 'modal-basic-title',
       size: 'lg',
     });
-    this.modalReference.result.then(() => {
-      this.addCategoryForm.reset();
-    });
+    this.modalReference.result.then(
+      () => {
+        this.addCategoryForm.reset();
+      },
+      () => {
+        this.addCategoryForm.reset();
+      }
+    );
   }
 
   ngOnInit() {}
@@ -46,6 +52,7 @@ export class AddCategoryComponent implements OnInit {
       (data) => {
         this.loading = false;
         this.resetForm();
+        this.categoryAdded.emit();
       },
       (error) => {
         this.loading = false;

@@ -26,7 +26,19 @@ namespace Data.Services
 
         public async Task<List<DbCategory>> GetAllCategories()
         {
-            var sql = "select * from Categories";
+            var sql = "select * from Categories Order By QuestionsTagged Desc";
+            var categories = await connection.QueryAsync<DbCategory>(sql);
+            return categories.AsList();
+        }
+
+        public async Task<List<DbCategory>> SearchCategoriesByKeyword(string keyword,int sortBy)
+        {
+            string orderBy = "";
+            if(sortBy == 1)
+            {
+                orderBy = "QuestionsTagged DESC";
+            }
+            var sql = "select * from Categories Where Name Like '%"+keyword+"%' Order By "+orderBy;
             var categories = await connection.QueryAsync<DbCategory>(sql);
             return categories.AsList();
         }

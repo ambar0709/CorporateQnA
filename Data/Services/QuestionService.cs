@@ -24,6 +24,10 @@ namespace Data.Services
             var sql = "insert into Questions(Title,Description,CategoryId,UserId,CreatedOn)" +
                 "values(@Title,@Description,@CategoryId,@UserId,@CreatedOn)";
             await connection.ExecuteAsync(sql,question);
+            sql = "Update Categories " +
+                "Set QuestionsTagged=QuestionsTagged+1 " +
+                "Where Id=@Id";
+            await connection.ExecuteAsync(sql,new { Id=question.CategoryId});
             return;
         }
     }

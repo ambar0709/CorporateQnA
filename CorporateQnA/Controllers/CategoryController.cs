@@ -29,6 +29,14 @@ namespace CorporateQnA.Controllers
             return categories;
         }
 
+        [HttpGet("search")]
+        public async Task<List<Category>> SearchCategories(string keyword,int sortBy)
+        {
+            var dbCategories = await _categoryService.SearchCategoriesByKeyword(keyword, sortBy);
+            var categories = _mapper.Map<List<DbCategory>, List<Category>>(dbCategories);
+            return categories;
+        }
+
         [HttpPost]
         public async Task<ActionResult> AddCategory(Category category)
         {

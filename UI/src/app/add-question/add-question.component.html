@@ -17,11 +17,11 @@
         <input
           type="text"
           class="form-control"
-          formControlName="title"
+          formControlName="Title"
           placeholder="Enter your question"
         />
         <span
-          *ngIf="!formControls.title.valid && formControls.title.touched"
+          *ngIf="!formControls.Title.valid && formControls.Title.touched"
           class="text-danger"
           >Question title is required</span
         >
@@ -32,7 +32,8 @@
           <ngx-editor
             [editor]="editor"
             placeholder="Enter your text here"
-            formControlName="description"
+            formControlName="Description"
+            outputFormat="html"
           >
           </ngx-editor>
           <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
@@ -40,7 +41,7 @@
         </div>
         <span
           *ngIf="
-            !formControls.description.valid && formControls.description.touched
+            !formControls.Description.valid && formControls.Description.touched
           "
           class="text-danger"
           >Description is required</span
@@ -48,7 +49,7 @@
       </div>
       <div class="mb-4">
         <label class="form-label">Category</label>
-        <select class="form-control" formControlName="categoryId">
+        <select class="form-control" formControlName="CategoryId">
           <option value="" disabled selected>Select</option>
           <option *ngFor="let category of categories" [ngValue]="category.id">
             {{ category.name }}
@@ -56,7 +57,7 @@
         </select>
         <span
           *ngIf="
-            !formControls.categoryId.valid && formControls.categoryId.touched
+            !formControls.CategoryId.valid && formControls.CategoryId.touched
           "
           class="text-danger"
           >Category is required</span

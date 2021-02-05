@@ -4,14 +4,16 @@ using CorporateQnA.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CorporateQnA.Migrations
 {
     [DbContext(typeof(CorporateQnADbContext))]
-    partial class CorporateQnADbContextModelSnapshot : ModelSnapshot
+    [Migration("20210205084941_changeRequiredInQuestionTable")]
+    partial class changeRequiredInQuestionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,13 +143,13 @@ namespace CorporateQnA.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UpVotes")
+                    b.Property<int?>("UpVotes")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Views")
+                    b.Property<int?>("Views")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

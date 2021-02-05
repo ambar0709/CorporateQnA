@@ -15,7 +15,7 @@ namespace CorporateQnA.Profiles
             CreateMap<User,AuthUser>();
             CreateMap<Category,DbCategory>();
             CreateMap<DbCategory,Category>();
-            CreateMap<DbQuestion,Question>();
+            CreateMap<Question,DbQuestion>();
         }
     }
 }

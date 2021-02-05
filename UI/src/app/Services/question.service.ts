@@ -1,3 +1,4 @@
+import { Question } from './../Shared/Models/Question';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,7 +9,10 @@ import { Injectable } from '@angular/core';
 export class QuestionService {
   constructor(private http: HttpClient) {}
 
-  addQuestion(question) {
-    return this.http.post(`${environment.URL}/api/questions`, question);
+  addQuestion(question: Question) {
+    return this.http.post<Question>(
+      `${environment.URL}/api/questions`,
+      question
+    );
   }
 }

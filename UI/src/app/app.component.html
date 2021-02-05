@@ -2,7 +2,8 @@
 <app-side-nav></app-side-nav>
 <div class="main-content d-flex">
   <div class="main">
-    <router-outlet></router-outlet>
+    <app-main-nav *ngIf="isAuthenticated"></app-main-nav>
+    <router-outlet class="content"></router-outlet>
     <!-- <app-main-nav></app-main-nav>
     <app-search-question></app-search-question>
     <div class="d-flex questions-answers">

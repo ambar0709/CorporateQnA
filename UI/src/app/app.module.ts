@@ -1,4 +1,4 @@
-import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddCategoryComponent } from './categories/add-category/add-category.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +19,8 @@ import { SearchQuestionComponent } from './search-question/search-question.compo
 import { SignupComponent } from './signup/signup.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CategoriesComponent } from './categories/categories.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SignupComponent,
     LoginComponent,
     AddCategoryComponent,
+    CategoriesComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,4 +19,10 @@ export class CategoryService {
       category
     );
   }
+
+  searchCategories(keyword: string, sortBy: number) {
+    return this.http.get<Category[]>(
+      `${environment.URL}/api/categories/search?keyword=${keyword}&sortBy=${sortBy}`
+    );
+  }
 }
